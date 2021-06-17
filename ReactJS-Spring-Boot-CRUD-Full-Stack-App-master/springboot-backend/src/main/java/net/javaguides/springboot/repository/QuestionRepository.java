@@ -7,6 +7,7 @@ import net.javaguides.springboot.model.Question;
 
 
 public interface QuestionRepository  extends JpaRepository<Question, Long>{
+	
 
 }
 

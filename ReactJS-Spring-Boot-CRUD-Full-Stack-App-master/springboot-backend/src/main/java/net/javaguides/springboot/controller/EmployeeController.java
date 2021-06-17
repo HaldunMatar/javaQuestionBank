@@ -42,10 +42,21 @@ public class EmployeeController {
 	}
 	
 	// get employee by id rest api
-	@GetMapping("/employees/{id}")
-	public ResponseEntity<Employee> getEmployeeById(@PathVariable Long id) {
-		Employee employee = employeeRepository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + id));
+	@GetMapping("/employees/id/")
+	//public ResponseEntity<Employee> getEmployeeById(@PathVariable Long id) {
+	public ResponseEntity<Employee> getEmployeeById() {
+		
+		int min = 35;
+	      int max = 38;
+	        
+	      //Generate random int value from 50 to 100 
+	     
+	      long random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
+	      System.out.println(random_int);
+		
+		
+		Employee employee = employeeRepository.findById(  random_int )
+				.orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + 35));
 		return ResponseEntity.ok(employee);
 	}
 	

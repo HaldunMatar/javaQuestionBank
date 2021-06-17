@@ -29,6 +29,13 @@ public class QuestionController {
 	@Autowired
 	private QuestionRepository questionRepository;
 	
+	
+	// get all questions
+	@GetMapping("/questions/level1")
+	public List<Question> getAllQuestionslevel1(){
+		return questionRepository.findAll();
+	}	
+	
 	// get all questions
 	@GetMapping("/questions")
 	public List<Question> getAllQuestions(){

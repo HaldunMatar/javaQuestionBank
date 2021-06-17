@@ -6,7 +6,9 @@ class UpdateEmployeeComponent extends Component {
         super(props)
 
         this.state = {
-            id: this.props.match.params.id,
+          //  id: this.props.match.params.id,
+
+         // id: 35,
             firstName: '',
             lastName: '',
             emailId: ''
@@ -17,7 +19,11 @@ class UpdateEmployeeComponent extends Component {
     }
 
     componentDidMount(){
-        EmployeeService.getEmployeeById(this.state.id).then( (res) =>{
+       // EmployeeService.getEmployeeById(this.state.id).then( (res) =>{
+
+        EmployeeService.getEmployeeById(35).then( (res) =>{
+            alert('ffff')
+            alert('ffff')
             let employee = res.data;
             this.setState({firstName: employee.firstName,
                 lastName: employee.lastName,

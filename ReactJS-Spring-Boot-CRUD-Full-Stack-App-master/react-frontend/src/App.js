@@ -8,8 +8,11 @@ import FooterComponent from './components/FooterComponent';
 import CreateQuestionComponent from './components/CreateQuestionComponent';
 
 import ListQuestionComponent from './components/ListQuestionComponent';
+import UpdateEmployeeComponent from './components/UpdateEmployeeComponent';
 
 
+
+import QuestionComponent from './components/QuestionComponent';
 function App() 
  {
   return (
@@ -19,15 +22,19 @@ function App()
               <HeaderComponent />
                 <div className="container">
                     <Switch> 
-                     {/* <Route path = "/" exact component = {ListEmployeeComponent}></Route>
+                     {
+                     /* 
+                     <Route path = "/" exact component = {ListEmployeeComponent}></Route>
                           <Route path = "/employees" component = {ListEmployeeComponent}></Route>
                           <Route path = "/add-employee/:id" component = {CreateEmployeeComponent}></Route>
-                         <Route path = "/view-employee/:id" component = {ViewEmployeeComponent}></Route> */}
+                         <Route path = "/view-employee/:id" component = {ViewEmployeeComponent}></Route> */
 
-                          {/* <Route path = "/update-employee/:id" component = {UpdateEmployeeComponent}></Route> */}
+                         }
+
+                          { <Route path = "/update-employee/id" component = {UpdateEmployeeComponent}></Route> }
                           <Route path = "/questions" component = {ListQuestionComponent}></Route> 
                           <Route path = "/add-question/:id" component = {CreateQuestionComponent}></Route>
-                          <Route path = "/question1" component = {CreateQuestionComponent}></Route>
+                          <Route path = "/question1" component = {QuestionComponent}></Route>
                     </Switch>
                 </div>
               <FooterComponent />
