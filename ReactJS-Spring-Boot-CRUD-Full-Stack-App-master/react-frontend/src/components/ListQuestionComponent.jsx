@@ -4,11 +4,16 @@ import React, { Component } from 'react'
 import QuestionService from '../services/QuestionService';
 
 class ListQuestionComponent extends Component {
+
+      map1 ;
+    
     constructor(props) {
         super(props)
 
         this.state = {
-                employees: []
+                employees: [] ,
+
+                items: []
         }
         this.addEmployee = this.addEmployee.bind(this);
         this.editEmployee = this.editEmployee.bind(this);
@@ -31,7 +36,37 @@ class ListQuestionComponent extends Component {
     componentDidMount(){
         QuestionService.getQuestions().then((res) => {
             this.setState({ employees: res.data});
+
+            
+
+            this.setState({ items: [{name:'ggg', name1:'gggggggg'} ,
+            {name:'ddd', name1:'dd'} ] } ) ;
+
+        
+            this.setState({   items:   this.state.employees.map(x => x ) });
+        
+       
+         //   let items = [...this.state.employees]; 
+            
+           alert(this.state.items[1].name);
+
+           for (var i = 0;
+            i < this.state.employees.length;
+            i++) {
+
+
+               // this.setState({ items[i]: });
+          }
+
+          //  alert(items[1].name);
+
+           // TypeError: this.state.items[1] is undefined
         });
+
+      
+
+
+      
     }
 
     addEmployee(){
@@ -51,7 +86,9 @@ class ListQuestionComponent extends Component {
 
                             <thead>
                                 <tr>
-                                    <th> الرقم</th>
+
+                              
+                                    <th>{this.state.items.length}</th>
                                     <th> السؤال</th>
                                     <th> الخيار الاول</th>
                                     <th>الخيار الثاني</th>

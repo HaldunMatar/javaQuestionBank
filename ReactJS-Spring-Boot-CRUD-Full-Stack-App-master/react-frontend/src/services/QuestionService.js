@@ -19,7 +19,7 @@ class QuestionService {
     }
 
     getQuestionById(questionId){
-        return axios.get(EMPLOYEE_API_BASE_URL + '/' + questionId);
+        return axios.get(EMPLOYEE_API_BASE_URL + '/id/');
     }
 
     updateQuestion(question, questionId){
@@ -29,6 +29,8 @@ class QuestionService {
     deleteQuestion(questionId){
         return axios.delete(EMPLOYEE_API_BASE_URL + '/' + questionId);
     }
+
+   
 }
 
 export default new QuestionService()

@@ -9,9 +9,13 @@ class ListQuestionComponent extends Component {
         super(props)
 
         this.state = {
-                employees: []
-                
-        }
+            //  id: this.props.match.params.id,
+  
+           // id: 35,
+              name: '',
+              option1: '',
+              option2: ''
+          }
 
         
         this.addEmployee = this.addEmployee.bind(this);
@@ -24,7 +28,7 @@ class ListQuestionComponent extends Component {
 
     deleteEmployee(id){
         QuestionService.deleteQuestion(id).then( res => {
-            this.setState({employees: this.state.employees.filter(employee => employee.id !== id)});
+          //  this.setState({employees: this.state.employees.filter(employee => employee.id !== id)});
         });
     }
     viewEmployee(id){
@@ -36,29 +40,37 @@ class ListQuestionComponent extends Component {
 
     componentDidMount(){
 
-        var listemp = []
-        alert(listemp.length ) ;
+        QuestionService.getQuestionById(35).then( (res) =>{
+          
+         
+           let question = res.data;
+            this.setState({name: question.name,
+                option1: question.option1,
+                option2 : question.option2
+            });
+        });
 
 
-     QuestionService.getQuestionsLevel('level1').then(
+    /* QuestionService.getQuestionsLevel('level1').then(
          (res) =>
           {
             this.setState({ employees: res.data});    
-           listemp=     this.state.employees.map(
-                    employee => {listemp[1]=employee}            
-            )
+                
           } 
 
           
 
-        );
+        );*/
 
-        alert(listemp.length) ;
+       
 
     }
 
     addEmployee(){
-        this.props.history.push('/add-question/_add');
+        
+ alert('ffffffffff') ; 
+      //  this.props.history.push('/question1/');
+       this.props.history.push('/question1/');
     }
 
     render() {
@@ -68,7 +80,7 @@ class ListQuestionComponent extends Component {
 
 
 
-<p id="questionstd">Rounded corners!</p>
+<p id="questionstd">{this.state.name}</p>
 <div  id="divstd" >
 
 <p id="answrstd">xcxccccccccccccccccccccccccccccccccccccc</p> 
@@ -77,44 +89,22 @@ class ListQuestionComponent extends Component {
   <tr>
   <th><p id="answrstd">xcxccccccccccccccccccccccccccccccccccccc</p></th>
  
-    <th><p id="answrstd">{ this.state.employees.filter(singleItem => singleItem.id === 132).id}</p> </th>
-    <th><p id="answrstd">{this.state.employees.length}</p></th>
-    <th><p id="answrstd">{this.state.employees.findIndex(obj => obj.id === 132)}</p></th>
+    <th><p id="answrstd"></p> </th>
+    <th><p id="answrstd"></p></th>
+    <th><p id="answrstd"></p></th>
     <th><p id="answrstd"></p></th>
   </tr>
   <tbody>
                                 {
 
 
-
-
-                                    this.state.employees.map(
-                                        employee => 
-                                        <tr >
-                                             <td> { employee.id} </td>   
-                                             <td> { employee.name} </td>   
-                                             <td> { employee.option1} </td>   
-                                             <td> { employee.option2} </td>   
-                                             <td> { employee.option3} </td> 
-                                             <td> { employee.option4} </td>   
-                                             <td> { employee.answer} </td>
-                                             <td> { employee.level} </td> 
-                                             <td> { employee.subject} </td>    
-                                                
-
-                                            
-                                             <td>
-                                               
-                                                 <button style={{marginLeft: "10px"}} onClick={ () => this.deleteEmployee(employee.id)} className="btn btn-danger">Delete </button>
-                                                 
-                                             </td>
-                                        </tr>
-                                    )
                               }
                             </tbody>
   </table>
 
   </div>
+
+  <button  className="btn btn-primary" onClick={this.addEmployee}>  السؤال التالي</button>
   <p id="nextstd">next</p>
                         
             </div>

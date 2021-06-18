@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import net.javaguides.springboot.exception.ResourceNotFoundException;
+import net.javaguides.springboot.model.Employee;
 import net.javaguides.springboot.model.Question;
 import net.javaguides.springboot.repository.QuestionRepository;
 
@@ -46,6 +47,19 @@ public class QuestionController {
 	@PostMapping("/questions")
 	public Question createQuestion(@RequestBody Question question) {
 		return questionRepository.save(question);
+	}
+	
+	
+	
+	@GetMapping("/questions/id/")
+	public ResponseEntity<Question> getLevel1QuestionById() {
+		int min = 130;
+	      int max = 137;	     
+	      long random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
+	      System.out.println(random_int);
+	      Question question = questionRepository.findById(  random_int )
+				.orElseThrow(() -> new ResourceNotFoundException("question not exist with id :" + 35));
+		return ResponseEntity.ok(question);
 	}
 	
 	// get question by id rest api
