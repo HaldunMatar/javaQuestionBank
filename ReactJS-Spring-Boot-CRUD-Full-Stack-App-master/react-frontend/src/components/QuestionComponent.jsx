@@ -16,7 +16,10 @@ class ListQuestionComponent extends Component {
            // id: 35,
               name: '',
               option1: '',
-              option2: ''
+              option2: '' ,
+              option3: '' ,
+              option4: '' ,
+              answer: '' ,
           }
 
           this.nextQuestion = this.nextQuestion.bind(this);
@@ -27,6 +30,11 @@ class ListQuestionComponent extends Component {
         this.deleteEmployee = this.deleteEmployee.bind(this);
          this.deleteEmployee = this.deleteEmployee.bind(this);
 
+         this.checkQuestion = this.checkQuestion.bind(this);
+
+
+         
+
          
     }
 
@@ -35,6 +43,9 @@ class ListQuestionComponent extends Component {
           //  this.setState({employees: this.state.employees.filter(employee => employee.id !== id)});
         });
     }
+
+
+    
     viewEmployee(id){
         this.props.history.push(`/view-employee/${id}`);
     }
@@ -53,6 +64,9 @@ class ListQuestionComponent extends Component {
                 option2 : question.option2,
                 option3: question.option3,
                 option4 : question.option4,
+                answer : question.answer,
+
+                
             });
         });
 
@@ -88,6 +102,61 @@ class ListQuestionComponent extends Component {
            
          }
 
+         checkQuestion(id){
+          alert('checkQuestion')
+
+          if(id== 1)
+          alert('1')
+          if(id== 2)
+          alert('2')
+          if(id== 3)
+          alert('3')
+          if(id== 4)
+          alert('4')
+               }
+
+
+               checkQuestion1(){
+
+                if( document.getElementById("answer").value==1)
+                
+              alert( 'الأجابة صحيحة أحسنت');
+
+              else 
+              alert( 'مع الاسف الاجابة خاطئة  ');
+
+                
+                }
+                
+               
+               checkQuestion2(){
+                if( document.getElementById("answer").value==2)
+                
+                alert( 'الأجابة صحيحة أحسنت');
+  
+                else 
+                alert( 'مع الاسف الاجابة خاطئة  ');
+  
+               }
+               checkQuestion3(){
+                if( document.getElementById("answer").value==3)
+                
+                alert( 'الأجابة صحيحة أحسنت');
+  
+                else 
+                alert( 'مع الاسف الاجابة خاطئة  ');
+  
+               }
+               checkQuestion4(){
+                if( document.getElementById("answer").value==4)
+                
+                alert( 'الأجابة صحيحة أحسنت');
+  
+                else 
+                alert( 'مع الاسف الاجابة خاطئة  ');
+  
+               }
+
     render() {
         return (
             <div>
@@ -109,17 +178,20 @@ class ListQuestionComponent extends Component {
   <tr width = '100%'>
 
  
-    <th><p id="answrstd" >{this.state.option1}</p> </th>
-    <th><p id="answrstd">{this.state.option2}</p></th>
-    <th><p id="answrstd">{this.state.option3}</p></th>
-    <th><p id="answrstd">{this.state.option4}</p></th>
+    <th><p id="answrstd" onClick={this.checkQuestion1}  correct={this.state.answer}  >{this.state.option1}</p> </th>
+    <th><p id="answrstd" onClick={this.checkQuestion2}  correct={this.state.answer}   >{this.state.option2}</p></th>
+    <th><p id="answrstd"onClick={this.checkQuestion3}   correct={this.state.answer}  >{this.state.option3}</p></th>
+    <th><p id="answrstd" onClick={this.checkQuestion4}  correct={this.state.answer}   >{this.state.option4}</p></th>
   </tr>
  
   </table>
   </div>
-
+  <input type="hidden" id="answer" name="answer" value= {this.state.answer}></input>
   </div>
+  
   <button className="btn btn-primary" onClick={this.nextQuestion}>السؤال التالي</button>
+
+  
   
   <p id="nextstd"  onClick={this.nextQuestion}  > التالي</p>
                         

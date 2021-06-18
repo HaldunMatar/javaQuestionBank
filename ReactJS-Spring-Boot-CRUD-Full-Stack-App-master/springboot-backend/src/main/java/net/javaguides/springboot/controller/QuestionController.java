@@ -54,7 +54,7 @@ public class QuestionController {
 	@GetMapping("/questions/id/")
 	public ResponseEntity<Question> getLevel1QuestionById() {
 		int min = 130;
-	      int max = 147;
+	      int max = 155;
 	      o = o +1 ;
 	      long random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
 	      System.out.println(random_int);
