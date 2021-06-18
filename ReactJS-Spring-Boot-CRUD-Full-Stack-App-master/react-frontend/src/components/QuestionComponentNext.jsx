@@ -19,8 +19,6 @@ class ListQuestionComponent extends Component {
               option2: ''
           }
 
-          this.nextQuestion = this.nextQuestion.bind(this);
-
         this.addEmployee = this.addEmployee.bind(this);
         this.addEmployee = this.addEmployee.bind(this);
         this.editEmployee = this.editEmployee.bind(this);
@@ -74,29 +72,23 @@ class ListQuestionComponent extends Component {
 
 
     addEmployee(){
-      
-      this.props.history.push('/next-question1/');
+      this.props.history.push('/question1/');
   }
 
     nextQuestion(){
         
-    //  alert('nextQuestion') ; 
+      alert('nextQuestion') ; 
            //  this.props.history.push('/question1/');
-        // this.props.history.push('/next-question1/');
-
-        window.location.reload();
-           
+            this.props.history.push('/question1/');
          }
 
     render() {
         return (
             <div>
-              
+               
 
 
-
-
-              <p id="questionstd">{this.state.name}</p>
+<p id="questionstd">{this.state.name}</p>
 <div  id="divstd" >
 
 
@@ -119,9 +111,9 @@ class ListQuestionComponent extends Component {
   </div>
 
   </div>
-  <button className="btn btn-primary" onClick={this.nextQuestion}>السؤال التالي</button>
+  <button className="btn btn-primary" onClick={this.addEmployee}>السؤال التالي</button>
   
-  <p id="nextstd"  onClick={this.nextQuestion}  > التالي</p>
+  <p id="nextstd"  onClick={this.addEmployee}  > next</p>
                         
             </div>
         )

@@ -13,6 +13,8 @@ import UpdateEmployeeComponent from './components/UpdateEmployeeComponent';
 
 
 import QuestionComponent from './components/QuestionComponent';
+
+import QuestionComponentNext from './components/QuestionComponentNext';
 function App() 
  {
   return (
@@ -34,6 +36,7 @@ function App()
                           { <Route path = "/update-employee/id" component = {UpdateEmployeeComponent}></Route> }
                           <Route path = "/questions" component = {ListQuestionComponent}></Route> 
                           <Route path = "/add-question/:id" component = {CreateQuestionComponent}></Route>
+                          <Route path = "/next-question1/" component = {QuestionComponentNext}></Route>
                           <Route path = "/question1/" component = {QuestionComponent}></Route>
                     </Switch>
                 </div>
