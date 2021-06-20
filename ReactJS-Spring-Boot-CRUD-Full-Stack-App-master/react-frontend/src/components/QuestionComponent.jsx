@@ -12,6 +12,7 @@ class ListQuestionComponent extends Component {
 
         this.state = {
             //  id: this.props.match.params.id,
+            questions: [] ,
   
            // id: 35,
               name: '',
@@ -20,6 +21,9 @@ class ListQuestionComponent extends Component {
               option3: '' ,
               option4: '' ,
               answer: '' ,
+
+
+              indexquestion:1,
           }
 
           this.nextQuestion = this.nextQuestion.bind(this);
@@ -55,9 +59,7 @@ class ListQuestionComponent extends Component {
 
     componentDidMount(){
 
-        QuestionService.getQuestionById(35).then( (res) =>{
-          
-         
+       /* QuestionService.getQuestionById(35).then( (res) =>{          
            let question = res.data;
             this.setState({name: question.name,
                 option1: question.option1,
@@ -68,8 +70,23 @@ class ListQuestionComponent extends Component {
 
                 
             });
-        });
+        });*/
 
+//************************************* */
+
+    
+QuestionService.getQuestions().then((res) => {
+  this.setState({ questions: res.data});
+
+
+
+
+});
+
+
+
+
+//************************************************** */
 
     /* QuestionService.getQuestionsLevel('level1').then(
          (res) =>
@@ -98,7 +115,16 @@ class ListQuestionComponent extends Component {
            //  this.props.history.push('/question1/');
         // this.props.history.push('/next-question1/');
 
-        window.location.reload();
+      //  window.location.reload();
+
+        this.setState({ indexquestion:this.state.indexquestion +1 });
+        this.setState({ option3: this.state.questions[this.state.indexquestion].option3});
+        this.setState({ option1: this.state.questions[this.state.indexquestion].option1});
+        this.setState({ option2: this.state.questions[this.state.indexquestion].option2});
+        this.setState({ option4: this.state.questions[this.state.indexquestion].option4});
+        this.setState({ name: this.state.questions[this.state.indexquestion].name});
+        this.setState({ answer: this.state.questions[this.state.indexquestion].answer});
+
            
          }
 
@@ -189,7 +215,7 @@ class ListQuestionComponent extends Component {
   <input type="hidden" id="answer" name="answer" value= {this.state.answer}></input>
   </div>
   
-  <button className="btn btn-primary" onClick={this.nextQuestion}>السؤال التالي</button>
+
 
   
   

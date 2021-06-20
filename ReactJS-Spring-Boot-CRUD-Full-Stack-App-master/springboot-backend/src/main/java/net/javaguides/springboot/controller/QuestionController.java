@@ -23,7 +23,7 @@ import net.javaguides.springboot.repository.QuestionRepository;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/v1/")
+//@RequestMapping("/api/v1/")
 
 public class QuestionController {
 	
@@ -54,11 +54,11 @@ public class QuestionController {
 	@GetMapping("/questions/id/")
 	public ResponseEntity<Question> getLevel1QuestionById() {
 		int min = 130;
-	      int max = 155;
+	      int max = 135;
 	      o = o +1 ;
 	      long random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
-	      System.out.println(random_int);
-	      System.out.println(o);
+	      System.out.println("random_int="+random_int+ "o  ="+ o);
+	      System.out.println("---------------------------------------");
 	      Question question = questionRepository.findById(  random_int )
 				.orElseThrow(() -> new ResourceNotFoundException("question not exist with id :" + 35));
 		return ResponseEntity.ok(question);

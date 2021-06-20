@@ -5,20 +5,39 @@ import QuestionService from '../services/QuestionService';
 
 class ListQuestionComponent extends Component {
 
-      map1 ;
     
     constructor(props) {
         super(props)
 
         this.state = {
                 employees: [] ,
+                squares: Array().fill(10),
+                questionArrayName :Array() ,
+                questionArrayoption1 :Array() ,
+                questionArrayoption2 :Array() ,
+                questionArrayoption3 :Array() ,
+                questionArrayoption4 :Array() ,
+                questionArrayAnswer :Array() ,
 
+
+                name: '',
+              option1: '',
+              option2: '' ,
+              option3: '' ,
+              option4: '' ,
+              answer: '' ,
+
+              indexquestion:1,
+              
                 items: []
         }
         this.addEmployee = this.addEmployee.bind(this);
         this.editEmployee = this.editEmployee.bind(this);
         this.deleteEmployee = this.deleteEmployee.bind(this);
          this.deleteEmployee = this.deleteEmployee.bind(this);
+         this.increasIndex = this.increasIndex.bind(this);
+
+        
     }
 
     deleteEmployee(id){
@@ -30,14 +49,26 @@ class ListQuestionComponent extends Component {
         this.props.history.push(`/view-employee/${id}`);
     }
     editEmployee(id){
-        this.props.history.push(`/add-employee/${id}`);
+
+        this.setState({ indexquestion:3});
+        this.props.history.go(0) ;
+
+      //  this.props.history.push(`/add-employee/${id}`);
     }
 
+
+    increasIndex(){
+        this.setState({ indexquestion:3});
+    }
+
+    
+
     componentDidMount(){
+
+      //  this.squares[3]=12;
+        
         QuestionService.getQuestions().then((res) => {
             this.setState({ employees: res.data});
-
-            
 
             this.setState({ items: [{name:'ggg', name1:'gggggggg'} ,
             {name:'ddd', name1:'dd'} ] } ) ;
@@ -45,11 +76,23 @@ class ListQuestionComponent extends Component {
         
             this.setState({   items:   this.state.employees.map(x => x ) });
         
-       
-         //   let items = [...this.state.employees]; 
+           let   homeArray = new Array(this.state.employees.length);
+            let j = 0
             
-           alert(this.state.items[1].name);
+            for (var key in this.state.employees) {
+                homeArray[j] =  this.state.employees[key].name;
+                j = j + 1;
 
+
+
+
+            }
+
+            alert(homeArray[3])
+
+            this.setState({ questionArray:homeArray});
+
+          
            for (var i = 0;
             i < this.state.employees.length;
             i++) {
@@ -61,19 +104,28 @@ class ListQuestionComponent extends Component {
           //  alert(items[1].name);
 
            // TypeError: this.state.items[1] is undefined
+           this.setState({ option3: this.state.employees[this.state.indexquestion].name});
+
+
         });
 
       
-
+      
 
       
     }
 
     addEmployee(){
-        this.props.history.push('/add-question/_add');
+      //  this.props.history.push('/add-question/_add');
+
+      this.setState({ indexquestion:this.state.indexquestion +1 });
+      this.setState({ option3: this.state.employees[this.state.indexquestion].name});
+      //this.props.history.go(0) ;
     }
 
     render() {
+
+      
         return (
             <div>
                  <h2 className="text-center">Question  List</h2>
@@ -88,7 +140,7 @@ class ListQuestionComponent extends Component {
                                 <tr>
 
                               
-                                    <th>{this.state.items.length}</th>
+                                    <th>{this.state.option3}</th>
                                     <th> السؤال</th>
                                     <th> الخيار الاول</th>
                                     <th>الخيار الثاني</th>

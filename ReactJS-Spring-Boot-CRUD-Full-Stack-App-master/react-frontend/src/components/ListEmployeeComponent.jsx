@@ -6,12 +6,44 @@ class ListEmployeeComponent extends Component {
         super(props)
 
         this.state = {
-                employees: []
+                employees: [] 
         }
         this.addEmployee = this.addEmployee.bind(this);
         this.editEmployee = this.editEmployee.bind(this);
         this.deleteEmployee = this.deleteEmployee.bind(this);
          this.deleteEmployee = this.deleteEmployee.bind(this);
+         
+    }
+
+
+    componentDidMount(){
+        EmployeeService.getEmployees().then((res) => {
+            this.setState({ employees: res.data});
+
+            
+            alert("this.state.employees") ; 
+
+        alert(this.state.employees) ; 
+            this.setState({   items:   this.state.employees.map(x => x ) });
+ 
+
+           for (var i = 0;
+            i < this.state.employees.length;
+            i++) {
+
+
+               // this.setState({ items[i]: });
+          }
+
+          //  alert(items[1].name);
+
+           // TypeError: this.state.items[1] is undefined
+        });
+
+      
+
+
+      
     }
 
     deleteEmployee(id){
