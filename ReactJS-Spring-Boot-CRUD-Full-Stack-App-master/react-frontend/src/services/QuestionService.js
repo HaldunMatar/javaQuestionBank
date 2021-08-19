@@ -1,16 +1,23 @@
 import axios from 'axios';
-const EMPLOYEE_API_BASE_URL = "http://localhost:8081/questions";
+const EMPLOYEE_API_BASE_URL = "http://QuestionsBank:8081/questions";
 //const EMPLOYEE_API_BASE_URL = "http://192.168.1.106:8080/api/v1/questions";
 //const EMPLOYEE_API_BASE_URL = "http://192.168.1.101:8080/api/v1/questions";
 
 class QuestionService {
 
-    getQuestionsLevel(level){
-        return axios.get(EMPLOYEE_API_BASE_URL+'/' + level);
+    getQuestionseByLevel(level){
+      
+        return axios.get(EMPLOYEE_API_BASE_URL +'/level/' + level);
     }
 
-    getQuestions(){
-        return axios.get(EMPLOYEE_API_BASE_URL);
+    getQuestionsLevel(level){
+      
+        return axios.get(EMPLOYEE_API_BASE_URL+'/level/'+ level);
+       
+    }
+
+   getQuestions(level){
+        return axios.get(EMPLOYEE_API_BASE_URL+'/level/');
     }
 
     createQuestion(question){
@@ -28,6 +35,23 @@ class QuestionService {
     deleteQuestion(questionId){
         return axios.delete(EMPLOYEE_API_BASE_URL + '/' + questionId);
     }
+
+
+    handleClickService(arrayLength) {
+
+        const min = 1;
+        const max = arrayLength-1;
+        const rand = min + Math.random() * (max - min);
+     //   alert(this.state.random )
+  
+       var  index= Math.round( rand) 
+       if(index => max){
+        index= index;
+         }
+ // alert(index) ; 
+        return index ; 
+      }
+
 
    
 }

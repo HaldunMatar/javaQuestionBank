@@ -31,17 +31,28 @@ public class QuestionController {
 	private QuestionRepository questionRepository;
 	
 	
+	// get employee by id rest api
+		@GetMapping("/questions/level/{level}")
+		public List<Question>  getQuestionseByLevel(@PathVariable String level) {
+			//return questionRepository.findAll();
+			return questionRepository.getQuestionseByLevel(level);
+		}
+	
+	
 	// get all questions
-	@GetMapping("/questions/level1")
+	@GetMapping("/questions/level111111/")
 	public List<Question> getAllQuestionslevel1(){
+		
 		return questionRepository.findAll();
+		
+		//return questionRepository.getQuestionseByLevel("level1");
 	}	
 	
 	// get all questions
-	@GetMapping("/questions")
-	public List<Question> getAllQuestions(){
-		return questionRepository.findAll();
-	}		
+	//@GetMapping("/questions")
+	//public List<Question> getAllQuestions(){
+	//	return questionRepository.findAll();
+//	}		
 	
 	// create question rest api
 	@PostMapping("/questions")

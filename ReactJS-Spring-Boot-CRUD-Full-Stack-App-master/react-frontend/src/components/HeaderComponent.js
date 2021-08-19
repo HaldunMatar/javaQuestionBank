@@ -25,20 +25,7 @@ class HeaderComponent extends Component {
                 </header>
 
                 
-<div class="row">
 
-<div class="collumn">
-  <div class="animation" id="animation1">
-    <div class="containers">
-      <span class="aqure"></span>
-      <span  class="aqure" ></span>
-      <span  class="aqure" ></span>
-      <span  class="aqure" ></span>
-    </div>
-  </div>
- 
-</div>
-</div>
 
             </div>
             

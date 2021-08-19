@@ -179,15 +179,15 @@ class CreateQuestionComponent extends Component {
                                                 <option   value="math">  الرياضيات  </option>
                                                 <option value="physics">  القيزياء  </option>
                                               <option value="it">  المعلوماتية </option>
-
+                                              <option value="turkish"> turkce  </option>
                                               <option value="history"> التاريخ  </option>
                                               
                                               <option value="geography"> الجغرافيا  </option>
                                               <option value="science">  العلوم </option>
                                               <option value="chemistry">  الكيماء </option>
-                                              <option value="culture"> الثقافة  </option>
-                                              <option value="arabic">  العربي </option>
-                                              <option value="english"> الانكليزي  </option>
+                                              <option value="culture"> الثقافة و التربية الاجتماعية   </option>
+                                              <option value="arabic">   اللغة العربية </option>
+                                              <option value="english"> اللغة الانكليزية  </option>
                                               <option value="art">   الفنون</option>
                                               <option value="sport"> الرياضة  </option>
                                               <option value="islam">الاسلامية   </option>
@@ -205,7 +205,7 @@ class CreateQuestionComponent extends Component {
                                  
                                     <div id="block_container"> 
                                         <div className = "form-group">
-                                            <label dir = 'RTL' dir='RTL'> الخيار 1: </label>
+                                            <label > الخيار 1: </label>
                                             <input placeholder="Option1" name="option1" className="form-control" 
                                                 value={this.state.option1} onChange={this.changeOption1Handler}/>
                                         </div>
@@ -235,13 +235,13 @@ class CreateQuestionComponent extends Component {
                             </div>
 
                             <div className = "form-group">
-                                            <p  >  رقم الاجابة الصحيحة </p>
+                                            <p  >  فقط رقم الاجابة الصحصيحة (1أو 2 أو 3 أو 4 )  بهذا الشكل    رقم الاجابة الصحيحة </p>
                                             <input placeholder="answer" name="answer" className="form-control" 
                                                 value={this.state.answer} onChange={this.changeAnswerHandler}/>
                                         </div>
 
                                         <button className="btn btn-success" onClick={this.saveOrUpdateQuestion}>Save</button>
-                                        <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Cancel</button>
+                                        <button className="btn btn-danger" >Cancel</button>
                                     </form>
                                 </div>
                             </div>

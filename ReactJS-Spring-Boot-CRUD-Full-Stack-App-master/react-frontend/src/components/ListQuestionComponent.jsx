@@ -70,7 +70,7 @@ class ListQuestionComponent extends Component {
         QuestionService.getQuestions().then((res) => {
             this.setState({ employees: res.data});
 
-            this.setState({ items: [{name:'ggg', name1:'gggggggg'} ,
+            this.setState({ items: [{name:'ggg', name1:'ggggggg'} ,
             {name:'ddd', name1:'dd'} ] } ) ;
 
         
@@ -88,7 +88,7 @@ class ListQuestionComponent extends Component {
 
             }
 
-            alert(homeArray[3])
+         //   alert(homeArray[3])
 
             this.setState({ questionArray:homeArray});
 
@@ -119,7 +119,7 @@ class ListQuestionComponent extends Component {
       //  this.props.history.push('/add-question/_add');
 
       this.setState({ indexquestion:this.state.indexquestion +1 });
-      this.setState({ option3: this.state.employees[this.state.indexquestion].name});
+   //   this.setState({ option3: this.state.employees[this.state.indexquestion].name});
       //this.props.history.go(0) ;
     }
 
@@ -140,7 +140,7 @@ class ListQuestionComponent extends Component {
                                 <tr>
 
                               
-                                    <th>{this.state.option3}</th>
+                                    <th>id</th>
                                     <th> السؤال</th>
                                     <th> الخيار الاول</th>
                                     <th>الخيار الثاني</th>

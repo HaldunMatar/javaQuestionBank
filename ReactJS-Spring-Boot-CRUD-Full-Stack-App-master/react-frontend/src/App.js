@@ -10,12 +10,13 @@ import CreateQuestionComponent from './components/CreateQuestionComponent';
 import ListQuestionComponent from './components/ListQuestionComponent';
 import UpdateEmployeeComponent from './components/UpdateEmployeeComponent';
 import ListEmployeeComponent from './components/ListEmployeeComponent';
+import MainComponent          from './components/MainComponent';
 
 
 
 import QuestionComponent from './components/QuestionComponent';
 
-import QuestionComponentNext from './components/QuestionComponentNext';
+
 function App() 
  {
   return (
@@ -27,26 +28,41 @@ function App()
                     <Switch> 
                      {
                      /* 
-                     <Route path = "/" exact component = {ListEmployeeComponent}></Route>
+                     <Route path = "/" exact component = {MainComponent}></Route>
                          
                           <Route path = "/add-employee/:id" component = {CreateEmployeeComponent}></Route>
                          <Route path = "/view-employee/:id" component = {ViewEmployeeComponent}></Route> */
 
                          }
+
+
+
+                      <Route path = "/main" component = {MainComponent}></Route> 
+
                           <Route path = "/employees" component = {ListEmployeeComponent}></Route>
                           { <Route path = "/update-employee/id" component = {UpdateEmployeeComponent}></Route> }
                           <Route path = "/questions" component = {ListQuestionComponent}></Route> 
                           <Route path = "/add-question/:id" component = {CreateQuestionComponent}></Route>
-                          <Route path = "/next-question1/" component = {QuestionComponentNext}></Route>
-                          <Route path = "/question1/" component = {QuestionComponent}></Route>
+                     
+                          <Route path = "/question1/:level"   component = {QuestionComponent}></Route>
+
+                         
+
+                          
                     </Switch>
                 </div>
               <FooterComponent />
+
+)
         </Router>
     </div>
     
     
   );
 }
+
+
+
+
 
 export default App;
