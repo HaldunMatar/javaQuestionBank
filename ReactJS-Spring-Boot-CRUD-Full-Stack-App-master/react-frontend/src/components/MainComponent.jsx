@@ -11,11 +11,13 @@ class MainComponent extends Component {
         this.state = {
             fullName: 'Haldun Matar ',
             level: 'level1',
+            subject: 'null',
         }
 
         this.startRace = this.startRace.bind(this);
         this.changeFirstNameHandler = this.changeFirstNameHandler.bind(this);
         this.changeLevelHandler = this.changeLevelHandler.bind(this);
+        this.changeSubjectHandler = this.changeSubjectHandler.bind(this);
 
         
        
@@ -35,15 +37,17 @@ class MainComponent extends Component {
     changeLevelHandler= (event) => {
       this.setState({level: event.target.value});
     }
+
+
+    changeSubjectHandler= (event) => {
+        this.setState({subject: event.target.value});
+      }
  
-    startRace(level){
-      
-  
-        this.props.history.push(`/question1/${level}`);
+    startRace(level,subject){
+        alert(subject);
+        
+        this.props.history.push(`/question1/${level}/`); 
 
-       
-
-       
     }
 
  
@@ -78,8 +82,27 @@ class MainComponent extends Component {
  
                                                       </select>
                                         </div>
+                                        <div className = "form-group">
+                                        <p id="labeltext">  المادة </p>
+                                            <select  onChange={this.changeSubjectHandler}  placeholder="subject" name="subject" className="form-control" 
+                                                value={this.state.level} onChange={this.changeSubjectHandler} >
+                                                     <option   selected   value="math"> ----</option>
+                                                <option   selected   value="math"> الرياضيات</option>
+                                              <option value="arabic"> اللغة العربية</option>
+ 
+                                                      </select>
+                                        </div>
 
-                                        <p id="nextstd"  onClick={ () => this.startRace(this.state.level)}   > البدء</p>
+
+
+
+
+
+
+
+
+                                        
+                                        <p id="nextstd"  onClick={ () => this.startRace(this.state.level,this.state.subject)}   > البدء</p>
                                    </form>
            
                    </div>
