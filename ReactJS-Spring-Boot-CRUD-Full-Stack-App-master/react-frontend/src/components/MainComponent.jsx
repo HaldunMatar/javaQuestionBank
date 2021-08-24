@@ -11,7 +11,7 @@ class MainComponent extends Component {
         this.state = {
             fullName: 'Haldun Matar ',
             level: 'level1',
-            subject: 'arbic',
+            subject: 'general',
         }
 
         this.startRace = this.startRace.bind(this);
@@ -44,7 +44,7 @@ class MainComponent extends Component {
       }
  
     startRace(level,subject){
-        alert('startRace'+ subject);
+     // alert('startRace'+ subject);
         this.props.history.push(`/question1/${level}/${subject}`); 
         
 
@@ -87,11 +87,11 @@ class MainComponent extends Component {
                                         <div className = "form-group">
                                         <p id="labeltext">  المادة </p>
                                             <select  onChange={this.changeSubjectHandler}  placeholder="subject" name="subject" className="form-control" 
-                                                value={this.state.level} onChange={this.changeSubjectHandler} >
-                                                     <option   selected   value="math"> ----</option>
-                                                <option   selected   value="math"> الرياضيات</option>
+                                                value={this.state.subject} onChange={this.changeSubjectHandler} >
+                                              <option   selected   value="general"> عام</option>
+                                              <option      value="math"> الرياضيات</option>
                                               <option value="arabic"> اللغة العربية</option>
-                                              <option value="geography"> الجغرافيا</option>
+                                             
                                               <option value="sport"> الرياضة </option>
                                               <option value="english"> english </option>
                                               <option value="islam"> الاسلامية </option>
@@ -101,6 +101,7 @@ class MainComponent extends Component {
                                               <option value="physics"> الفيزياء </option>
                                               <option value="art"> الفنون </option>
                                               <option value="history"> التاريخ </option>
+                                              <option value="geography"> الجغرافيا</option>
                                              
 
                                               

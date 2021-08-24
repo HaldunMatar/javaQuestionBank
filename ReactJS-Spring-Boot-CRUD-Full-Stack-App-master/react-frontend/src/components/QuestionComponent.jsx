@@ -100,7 +100,7 @@ class ListQuestionComponent extends Component {
     }
  componentDidMount(){
 
-  alert('componentDidMount '+this.state.subjectPara);
+ // alert('componentDidMount '+this.state.subjectPara);
    this.handleClick();
   // alert('componentDidMount length ' + this.state.questions.length );
   // alert('componentDidMount levelPara ' + this.state.levelPara);

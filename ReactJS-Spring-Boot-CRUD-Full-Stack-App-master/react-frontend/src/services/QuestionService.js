@@ -6,7 +6,7 @@ const EMPLOYEE_API_BASE_URL = "http://QuestionsBank:8081/questions";
 class QuestionService {
 
     getQuestionseByLevel(level,subect){
-        alert('getQuestionseByLevel'+subect);
+       // alert('getQuestionseByLevel'+subect);
       
         return axios.get(EMPLOYEE_API_BASE_URL +'/level/' + level+'/'+subect);
     }
@@ -41,7 +41,8 @@ class QuestionService {
     handleClickService(arrayLength) {
         
         const min = 1;
-        const max = arrayLength-1;
+        const max = arrayLength;
+     //   alert('max'+ max) ; 
         const rand = min + Math.random() * (max - min);
      //   alert(this.state.random )
   
