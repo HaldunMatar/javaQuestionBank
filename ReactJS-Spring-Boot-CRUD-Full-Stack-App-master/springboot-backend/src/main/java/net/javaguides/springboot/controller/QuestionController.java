@@ -37,7 +37,9 @@ public class QuestionController {
 			//return questionRepository.findAll();
 			System.out.println("ffffffffffffffffffffffff"+level);
 			System.out.println("ffffffffffffffffffffffff"+subject);
-			return questionRepository.getQuestionseByLevel(level);
+			return questionRepository.getQuestionseByLevelAndSubject(level,subject);
+			//return questionRepository.getQuestionseByLevel(level);
+			//return questionRepository.getQuestionseByLevelAndSubject(level);
 		}
 	
 	

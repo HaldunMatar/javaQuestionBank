@@ -91,6 +91,23 @@ class MainComponent extends Component {
                                                      <option   selected   value="math"> ----</option>
                                                 <option   selected   value="math"> الرياضيات</option>
                                               <option value="arabic"> اللغة العربية</option>
+                                              <option value="geography"> الجغرافيا</option>
+                                              <option value="sport"> الرياضة </option>
+                                              <option value="english"> english </option>
+                                              <option value="islam"> الاسلامية </option>
+                                              <option value="science"> العلوم</option>
+                                              <option value="culture">  الثقافة و الاجتماعيات</option>
+                                              <option value="turkish">اللغة التركية</option>
+                                              <option value="physics"> الفيزياء </option>
+                                              <option value="art"> الفنون </option>
+                                              <option value="history"> التاريخ </option>
+                                             
+
+                                              
+                                             
+
+
+                                              
  
                                                       </select>
                                         </div>
