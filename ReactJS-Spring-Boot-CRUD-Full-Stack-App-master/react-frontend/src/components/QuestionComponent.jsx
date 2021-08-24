@@ -172,7 +172,7 @@ class ListQuestionComponent extends Component {
 
     if(    this.state.indexquestion >= 10)
       {
-        alert(' انتهت   الأسئلة');
+        alert('انتهت   الأسئلة');
         return ; 
 
       }else {

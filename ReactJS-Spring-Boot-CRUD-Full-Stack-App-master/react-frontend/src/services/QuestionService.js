@@ -38,7 +38,7 @@ class QuestionService {
 
 
     handleClickService(arrayLength) {
-
+        
         const min = 1;
         const max = arrayLength-1;
         const rand = min + Math.random() * (max - min);
@@ -46,10 +46,12 @@ class QuestionService {
   
        var  index= Math.round( rand) 
        if(index => max){
-        index= index;
+        index= index-1;
          }
  // alert(index) ; 
         return index ; 
+
+
       }
 
 

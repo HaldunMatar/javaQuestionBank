@@ -45,8 +45,10 @@ class MainComponent extends Component {
  
     startRace(level,subject){
         alert(subject);
+        this.props.history.push(`/question1/${level}/${subject}`); 
         
-        this.props.history.push(`/question1/${level}/`); 
+
+
 
     }
 
@@ -102,7 +104,7 @@ class MainComponent extends Component {
 
 
                                         
-                                        <p id="nextstd"  onClick={ () => this.startRace(this.state.level,this.state.subject)}   > البدء</p>
+                                        <p id="nextstd"  onClick={ () => this.startRace(this.state.level,'math')}   > البدء</p>
                                    </form>
            
                    </div>

@@ -44,7 +44,7 @@ function App()
                           <Route path = "/questions" component = {ListQuestionComponent}></Route> 
                           <Route path = "/add-question/:id" component = {CreateQuestionComponent}></Route>
                      
-                          <Route path = "/question1/:level"   component = {QuestionComponent}></Route>
+                          <Route path = "/question1/:level/:subject"   component = {QuestionComponent}></Route>
 
                          
 

@@ -35,6 +35,7 @@ public class QuestionController {
 		@GetMapping("/questions/level/{level}")
 		public List<Question>  getQuestionseByLevel(@PathVariable String level) {
 			//return questionRepository.findAll();
+		//	System.out.println("ffffffffffffffffffffffff"+subject);
 			return questionRepository.getQuestionseByLevel(level);
 		}
 	
