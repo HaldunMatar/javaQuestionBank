@@ -5,9 +5,10 @@ const EMPLOYEE_API_BASE_URL = "http://QuestionsBank:8081/questions";
 
 class QuestionService {
 
-    getQuestionseByLevel(level){
+    getQuestionseByLevel(level,subect){
+        alert('getQuestionseByLevel'+subect);
       
-        return axios.get(EMPLOYEE_API_BASE_URL +'/level/' + level);
+        return axios.get(EMPLOYEE_API_BASE_URL +'/level/' + level+'/'+subect);
     }
 
     getQuestionsLevel(level){

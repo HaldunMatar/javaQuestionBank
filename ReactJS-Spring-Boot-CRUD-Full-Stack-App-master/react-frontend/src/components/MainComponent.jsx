@@ -11,7 +11,7 @@ class MainComponent extends Component {
         this.state = {
             fullName: 'Haldun Matar ',
             level: 'level1',
-            subject: 'null',
+            subject: 'arbic',
         }
 
         this.startRace = this.startRace.bind(this);
@@ -44,7 +44,7 @@ class MainComponent extends Component {
       }
  
     startRace(level,subject){
-        alert(subject);
+        alert('startRace'+ subject);
         this.props.history.push(`/question1/${level}/${subject}`); 
         
 
@@ -104,7 +104,7 @@ class MainComponent extends Component {
 
 
                                         
-                                        <p id="nextstd"  onClick={ () => this.startRace(this.state.level,'math')}   > البدء</p>
+                                        <p id="nextstd"  onClick={ () => this.startRace(this.state.level,this.state.subject)}   > البدء</p>
                                    </form>
            
                    </div>

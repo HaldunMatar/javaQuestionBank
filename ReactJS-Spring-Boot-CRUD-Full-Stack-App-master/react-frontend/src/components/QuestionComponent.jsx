@@ -13,6 +13,7 @@ class ListQuestionComponent extends Component {
         this.state = {
           levelPara: this.props.match.params.level,
           fullName: this.props.match.params.fullName,
+          subjectPara: this.props.match.params.subject,
             questions: [] ,
               option1: '',
               option2: '' ,
@@ -98,10 +99,12 @@ class ListQuestionComponent extends Component {
         this.props.history.push(`/add-employee/${id}`);
     }
  componentDidMount(){
+
+  alert('componentDidMount '+this.state.subjectPara);
    this.handleClick();
   // alert('componentDidMount length ' + this.state.questions.length );
   // alert('componentDidMount levelPara ' + this.state.levelPara);
-   QuestionService.getQuestionseByLevel(this.state.levelPara).then((res) => {
+   QuestionService.getQuestionseByLevel(this.state.levelPara,this.state.subjectPara).then((res) => {
     this.setState({ questions: res.data});
 
 

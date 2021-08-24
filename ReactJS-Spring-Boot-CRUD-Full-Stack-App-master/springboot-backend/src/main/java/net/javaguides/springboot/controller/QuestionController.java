@@ -32,10 +32,11 @@ public class QuestionController {
 	
 	
 	// get employee by id rest api
-		@GetMapping("/questions/level/{level}")
-		public List<Question>  getQuestionseByLevel(@PathVariable String level) {
+		@GetMapping("/questions/level/{level}/{subject}")
+		public List<Question>  getQuestionseByLevel(@PathVariable String level,@PathVariable String subject) {
 			//return questionRepository.findAll();
-		//	System.out.println("ffffffffffffffffffffffff"+subject);
+			System.out.println("ffffffffffffffffffffffff"+level);
+			System.out.println("ffffffffffffffffffffffff"+subject);
 			return questionRepository.getQuestionseByLevel(level);
 		}
 	

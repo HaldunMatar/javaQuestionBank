@@ -31,7 +31,11 @@ function App()
                      <Route path = "/" exact component = {MainComponent}></Route>
                          
                           <Route path = "/add-employee/:id" component = {CreateEmployeeComponent}></Route>
-                         <Route path = "/view-employee/:id" component = {ViewEmployeeComponent}></Route> */
+                         <Route path = "/view-employee/:id" component = {ViewEmployeeComponent}></Route> 
+                         
+                         <Route path = "/questions" component = {ListQuestionComponent}></Route>
+                         
+                         */
 
                          }
 
@@ -41,7 +45,7 @@ function App()
 
                           <Route path = "/employees" component = {ListEmployeeComponent}></Route>
                           { <Route path = "/update-employee/id" component = {UpdateEmployeeComponent}></Route> }
-                          <Route path = "/questions" component = {ListQuestionComponent}></Route> 
+                        
                           <Route path = "/add-question/:id" component = {CreateQuestionComponent}></Route>
                      
                           <Route path = "/question1/:level/:subject"   component = {QuestionComponent}></Route>
