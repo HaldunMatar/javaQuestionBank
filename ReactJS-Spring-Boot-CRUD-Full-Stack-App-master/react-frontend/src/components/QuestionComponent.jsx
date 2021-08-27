@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 //import EmployeeService from '../services/EmployeeService'
 import QuestionService from '../services/QuestionService';
-
+import { Link} from 'react-router-dom'
 
 class ListQuestionComponent extends Component {
     constructor(props) {
@@ -359,7 +359,7 @@ class ListQuestionComponent extends Component {
     
      <span> id :  {this.state.id} </span>  
     
-    
+     <Link to="/add-question/_add">add-question</Link>
   
      </th>
    

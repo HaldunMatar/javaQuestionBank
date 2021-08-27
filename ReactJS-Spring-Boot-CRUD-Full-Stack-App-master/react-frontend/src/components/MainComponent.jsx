@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
 import QuestionService from '../services/QuestionService';
-
+import { Link} from 'react-router-dom'
 
 
 class MainComponent extends Component {
@@ -45,7 +45,8 @@ class MainComponent extends Component {
  
     startRace(level,subject){
      // alert('startRace'+ subject);
-        this.props.history.push(`/question1/${level}/${subject}`); 
+
+     this.props.history.push(`/question1/${level}/${subject}`); 
         
 
 
@@ -60,7 +61,8 @@ class MainComponent extends Component {
 
 <progress length='300' class="progressBar"  value="0" max="0" id="progressBar">  </progress>
                 <div >
-                <p id="questionsnum">  الصفحة الرئيسية اختيار المسابقة </p>
+                <p id="questionsnum">  الصفحة الرئيسية  </p>
+                <p id="questionsnum">  اختيار المسابقة</p>
 
                
                                 </div>
@@ -123,6 +125,14 @@ class MainComponent extends Component {
 
                                         
                                         <p id="nextstd"  onClick={ () => this.startRace(this.state.level,this.state.subject)}   > البدء</p>
+                                        <p>
+                                        <Link  to="/add-question/_add"  id="questionsnum">   اضافة الأسئلة</Link>
+                                        <Link  to="/"  id="questionsnum">   عرض الأسئلة</Link>
+                                        <Link  to="/"  id="questionsnum">   تعديل السؤال </Link>
+
+                                        </p>
+                                        
+
                                    </form>
            
                    </div>
