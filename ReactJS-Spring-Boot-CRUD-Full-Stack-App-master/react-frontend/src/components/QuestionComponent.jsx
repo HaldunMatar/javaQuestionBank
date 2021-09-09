@@ -179,10 +179,7 @@ class ListQuestionComponent extends Component {
         return ; 
 
       }else {
-
-    
       //  alert(this.state.random);
-      
         this.setState({ option1: this.state.questions[this.state.random].option1});
         this.setState({ option2: this.state.questions[this.state.random].option2});
         this.setState({ option4: this.state.questions[this.state.random].option4});
@@ -190,31 +187,14 @@ class ListQuestionComponent extends Component {
         this.setState({ name: this.state.questions[ this.state.random].name});
         this.setState({ answer: this.state.questions[this.state.random].answer});
         this.setState({ id: this.state.questions[this.state.random].id});
-
         if(    this.state.indexquestion < this.state.questions.length){
           this.setState({ indexquestion:this.state.indexquestion +1   
           })
-
         }
-        
-
-      
-
       ;
-         
-        
     }
-    var downloadTimer
-    clearInterval(downloadTimer);
-    document.getElementById("progressBar").value = 50;
-    var timeleft = 50;
-    downloadTimer= setInterval(function(){
-      if(timeleft <= 0){
-        clearInterval(downloadTimer);
-      }
-      document.getElementById("progressBar").value = 50 - timeleft;
-      timeleft -= 1;
-    }, 1000);
+  
+  
 
            
          }
@@ -359,7 +339,7 @@ class ListQuestionComponent extends Component {
     
      <span> id :  {this.state.id} </span>  
     
-     <Link to="/add-question/_add">add-question</Link>
+     
   
      </th>
    

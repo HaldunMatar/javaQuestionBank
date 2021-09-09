@@ -43,6 +43,8 @@ function App()
 
                       <Route path = "/main" component = {MainComponent}></Route> 
 
+                      <Route path = "/questions" component = {ListQuestionComponent}></Route>
+
                           <Route path = "/employees" component = {ListEmployeeComponent}></Route>
                           { <Route path = "/update-employee/id" component = {UpdateEmployeeComponent}></Route> }
                         

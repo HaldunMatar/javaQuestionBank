@@ -138,6 +138,17 @@ color: white ;
   margin-top: 10px;
 }
 
+#questionlabel {
+  border-radius: 25px;
+  background: red ;
+  padding: 10 px; 
+  text-align: center;
+color: white ; 
+  
+  font-size: 15px;
+  margin-top: 5px;
+}
+
 #table {
   align-content: center;
   text-align: center;

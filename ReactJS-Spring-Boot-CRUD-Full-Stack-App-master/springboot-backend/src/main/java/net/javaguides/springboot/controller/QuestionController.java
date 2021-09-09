@@ -48,8 +48,8 @@ public class QuestionController {
 	
 	
 	// get all questions
-	@GetMapping("/questions/level111111/")
-	public List<Question> getAllQuestionslevel1(){
+	@GetMapping("/questions")
+	public List<Question> getAllQuestions(){
 		
 		return questionRepository.findAll();
 		

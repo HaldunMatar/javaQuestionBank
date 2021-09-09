@@ -5,6 +5,8 @@ import { Link} from 'react-router-dom'
 
 
 class MainComponent extends Component {
+
+
     constructor(props) {
         super(props)
 
@@ -24,10 +26,8 @@ class MainComponent extends Component {
     }
 
  
-    getTitle(){
-       
+    getTitle(){  
             return <h6 className="text-center"> الصفحة الرئسية أختيار المسابقة</h6>
-      
     }
         
     changeFirstNameHandler= (event) => {
@@ -45,29 +45,17 @@ class MainComponent extends Component {
  
     startRace(level,subject){
      // alert('startRace'+ subject);
-
      this.props.history.push(`/question1/${level}/${subject}`); 
-        
-
-
-
     }
-
- 
-  
     render() {
         return (
             <div> 
-
 <progress length='300' class="progressBar"  value="0" max="0" id="progressBar">  </progress>
                 <div >
                 <p id="questionsnum">  الصفحة الرئيسية  </p>
-                <p id="questionsnum">  اختيار المسابقة</p>
-
-               
-                                </div>
+                <p id="questionsnum">  اختيار المسابقة</p>                  </div>
                <div className = "card-body">
-                                    <form>
+            <form>
                                         <div className = "form-group">
                                      
                                             <input  hidden  placeholder=" Name"  id="fullName" name="fullName" className="form-control" 
@@ -125,12 +113,12 @@ class MainComponent extends Component {
 
                                         
                                         <p id="nextstd"  onClick={ () => this.startRace(this.state.level,this.state.subject)}   > البدء</p>
-                                        <p>
+                                        <div>
                                         <Link  to="/add-question/_add"  id="questionsnum">   اضافة الأسئلة</Link>
-                                        <Link  to="/"  id="questionsnum">   عرض الأسئلة</Link>
+                                        <Link  to="/questions"  id="questionsnum">   عرض الأسئلة</Link>
                                         <Link  to="/"  id="questionsnum">   تعديل السؤال </Link>
 
-                                        </p>
+                                        </div>
                                         
 
                                    </form>

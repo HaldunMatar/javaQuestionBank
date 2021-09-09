@@ -18,7 +18,7 @@ class QuestionService {
     }
 
    getQuestions(level){
-        return axios.get(EMPLOYEE_API_BASE_URL+'/level/');
+        return axios.get(EMPLOYEE_API_BASE_URL);
     }
 
     createQuestion(question){

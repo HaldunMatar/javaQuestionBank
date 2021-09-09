@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import QuestionService from '../services/QuestionService';
+import { Link} from 'react-router-dom'
 
 
 
@@ -83,8 +84,8 @@ class CreateQuestionComponent extends Component {
         // step 5
         if(this.state.id === '_add'){
             QuestionService.createQuestion(question).then(res =>{
-                   alert(' تمت اضافة السؤال');
-                   alert(res.data.id);
+                  
+                   alert('تمت اضافة السؤال برقم : '+ res.data.id);
                // this.props.history.push('/questions');
             });
         }else{
@@ -135,7 +136,11 @@ class CreateQuestionComponent extends Component {
 
     getTitle(){
         if(this.state.id === '_add'){
-            return <h6 className="text-center">اضافة سؤال</h6>
+
+
+            return  <p id="questionsnum">  اضافة سؤال  </p>
+            
+           
         }else{
             return <h3 className="text-center">Update Question</h3>
         }
@@ -153,7 +158,9 @@ class CreateQuestionComponent extends Component {
                                 <div className = "card-body">
                                     <form>
                                         <div className = "form-group">
-                                            <label> نص السؤال: </label>
+
+                                        
+                                            <label id='questionlabel'> نص السؤال: </label>
                                             <input placeholder=" Name" name="name" className="form-control" 
                                                 value={this.state.name} onChange={this.changeFirstNameHandler}/>
                                         </div>
@@ -161,7 +168,7 @@ class CreateQuestionComponent extends Component {
                                      
 
                                         <div className = "form-group">
-                                            <label> المستوى: </label>
+                                            <label id='questionlabel' > المستوى: </label>
                                             <select placeholder="Level" name="level" className="form-control" 
                                                 value={this.state.level} onChange={this.changeLevelHandler} >
                                                      <option  selected  value="0">-----</option>
@@ -172,7 +179,7 @@ class CreateQuestionComponent extends Component {
                                         </div>
 
                                         <div className = "form-group">
-                                            <label> المادة: </label>
+                                            <label id='questionlabel' > المادة: </label>
                                             <select placeholder="subject" name="subject" className="form-control" 
                                                 value={this.state.subject}  onChange={this.changeSubjectHandler}  >
                                                       <option  selected  value="0">-----</option>
@@ -205,13 +212,13 @@ class CreateQuestionComponent extends Component {
                                  
                                     <div id="block_container"> 
                                         <div className = "form-group">
-                                            <label > الخيار 1: </label>
+                                            <label id='questionlabel'  > الخيار 1: </label>
                                             <input placeholder="Option1" name="option1" className="form-control" 
                                                 value={this.state.option1} onChange={this.changeOption1Handler}/>
                                         </div>
 
                                         <div className = "form-group">
-                                            <label> الخيار 2 : </label>
+                                            <label id='questionlabel' > الخيار 2 : </label>
                                             <input placeholder="Option2" name="option2" className="form-control" 
                                                 value={this.state.option2} onChange={this.changeOption2Handler}/>
                                         </div>
@@ -219,14 +226,14 @@ class CreateQuestionComponent extends Component {
                                        
 
                                         <div className = "form-group">
-                                            <label> الخيار 3 : </label>
+                                            <label id='questionlabel' > الخيار 3 : </label>
                                             <input placeholder="Option3" name="option3" className="form-control" 
                                                 value={this.state.option3} onChange={this.changeOption3Handler}/>
                                         </div>
 
 
                                         <div className = "form-group">
-                                            <label> الخيار 4 : </label>
+                                            <label id='questionlabel' > الخيار 4 : </label>
                                             <input placeholder="Option4" name="option4" className="form-control" 
                                                 value={this.state.option4} onChange={this.changeOption4Handler}/>
                                         </div>
@@ -235,13 +242,14 @@ class CreateQuestionComponent extends Component {
                             </div>
 
                             <div className = "form-group">
-                                            <p  >  فقط رقم الاجابة الصحصيحة (1أو 2 أو 3 أو 4 )  بهذا الشكل    رقم الاجابة الصحيحة </p>
+                                            <p  id='questionlabel'  >  فقط رقم الاجابة الصحصيحة (1أو 2 أو 3 أو 4 )  بهذا الشكل    رقم الاجابة الصحيحة </p>
                                             <input placeholder="answer" name="answer" className="form-control" 
                                                 value={this.state.answer} onChange={this.changeAnswerHandler}/>
                                         </div>
 
                                         <button className="btn btn-success" onClick={this.saveOrUpdateQuestion}>Save</button>
                                         <button className="btn btn-danger" >Cancel</button>
+                                        <Link  to="/main"  id="questionsnum">   العودة للصفحة الرئيسية   </Link>
                                     </form>
                                 </div>
                             </div>
