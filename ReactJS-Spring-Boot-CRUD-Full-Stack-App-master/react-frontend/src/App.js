@@ -3,9 +3,13 @@ import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
+
+import uploadingImageComponent from './components/uploadingImageComponent';
 import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
 import CreateQuestionComponent from './components/CreateQuestionComponent';
+import CreateQuestionComponentImageQuestion from './components/CreateQuestionComponentImageQuestion';
+
 
 import ListQuestionComponent from './components/ListQuestionComponent';
 import UpdateEmployeeComponent from './components/UpdateEmployeeComponent';
@@ -40,7 +44,7 @@ function App()
                          }
 
 
-
+                  <Route path = "/imageUpload" component = {uploadingImageComponent}></Route> 
                       <Route path = "/main" component = {MainComponent}></Route> 
 
                       <Route path = "/questions" component = {ListQuestionComponent}></Route>
@@ -49,7 +53,7 @@ function App()
                           { <Route path = "/update-employee/id" component = {UpdateEmployeeComponent}></Route> }
                         
                           <Route path = "/add-question/:id" component = {CreateQuestionComponent}></Route>
-                     
+                          <Route path = "/add-questionImage/" component = {CreateQuestionComponentImageQuestion}></Route>
                           <Route path = "/question1/:level/:subject"   component = {QuestionComponent}></Route>
 
                          

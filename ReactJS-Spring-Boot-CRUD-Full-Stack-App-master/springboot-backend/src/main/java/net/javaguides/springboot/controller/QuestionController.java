@@ -1,5 +1,8 @@
 package net.javaguides.springboot.controller;
 
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,7 +17,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import net.javaguides.springboot.exception.ResourceNotFoundException;
 import net.javaguides.springboot.model.Employee;
@@ -69,6 +74,29 @@ public class QuestionController {
 	}
 	
 	
+	// create question rest api
+		@PostMapping("/image")
+//public void  uploadImage() {
+public void uploadFile(@RequestParam("myFile") MultipartFile myFile ) {
+			
+ System.out.println(myFile);
+
+//file represent the uploaded file
+ Path path = Paths.get("" + myFile.getOriginalFilename());
+ System.out.println(path.toString());
+ try {
+	myFile.transferTo(path);
+} catch (IllegalStateException e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+} catch (IOException e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+} // save file
+ 
+ 
+}
+	
 	int o = 0 ;
 	@GetMapping("/questions/id/")
 	public ResponseEntity<Question> getLevel1QuestionById() {
@@ -108,14 +136,17 @@ public class QuestionController {
 	
 	// delete question rest api
 	@DeleteMapping("/questions/{id}")
-	public ResponseEntity<Map<String, Boolean>> deleteQuestion(@PathVariable Long id){
-		Question question = questionRepository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("Question not exist with id :" + id));
+	public ResponseEntity<Map<String, Boolean>> deleteQuestion(@PathVariable Long id)
+	
+	{
 		
+		Question question = questionRepository.findById(id)
+		.orElseThrow(() -> new ResourceNotFoundException("Question not exist with id :" + id));
 		questionRepository.delete(question);
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
 		return ResponseEntity.ok(response);
+			
 	}
 
 }
