@@ -7,7 +7,9 @@ class uploadingImageComponent extends Component {
 	state = {
 
 	// Initially, no file is selected
-	selectedFile: null
+	selectedFile: null ,
+
+	imageSource :'test.png'  ,
 	};
 	
 	// On file select (from the pop up)
@@ -36,7 +38,11 @@ class uploadingImageComponent extends Component {
 	
 	// Request made to the backend api
 	// Send formData object
-	axios.post(QUESTION_API_BASE_URL +'/image', formData);
+     	axios.post(QUESTION_API_BASE_URL +'/image', formData).then((res) => {
+			this.setState({ imageSource: res.data}  );
+			alert(res.data)
+	
+		});
 
 	};
 	
@@ -89,6 +95,7 @@ class uploadingImageComponent extends Component {
 				Upload!
 				</button>
 			</div>
+			<img  src ={this.state.imageSource}    width= '100' height='100'   />
 		{this.fileData()}
 		</div>
 	);

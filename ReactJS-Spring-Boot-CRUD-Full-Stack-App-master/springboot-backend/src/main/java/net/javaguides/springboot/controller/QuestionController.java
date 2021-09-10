@@ -77,15 +77,16 @@ public class QuestionController {
 	// create question rest api
 		@PostMapping("/image")
 //public void  uploadImage() {
-public void uploadFile(@RequestParam("myFile") MultipartFile myFile ) {
+public String  uploadFile(@RequestParam("myFile") MultipartFile myFile ) {
 			
  System.out.println(myFile);
 
 //file represent the uploaded file
- Path path = Paths.get("" + myFile.getOriginalFilename());
- System.out.println(path.toString());
+ Path path = Paths.get("../react-frontend\\public\\images\\" + myFile.getOriginalFilename());
+
  try {
 	myFile.transferTo(path);
+	
 } catch (IllegalStateException e) {
 	// TODO Auto-generated catch block
 	e.printStackTrace();
@@ -93,6 +94,7 @@ public void uploadFile(@RequestParam("myFile") MultipartFile myFile ) {
 	// TODO Auto-generated catch block
 	e.printStackTrace();
 } // save file
+ return path.toString().substring(path.toString().indexOf("images"));
  
  
 }
