@@ -5,11 +5,10 @@ const QUESTION_API_BASE_URL = "http://QuestionsBank:8081";
 class uploadingImageComponent extends Component {
 
 	state = {
-
 	// Initially, no file is selected
 	selectedFile: null ,
 
-	imageSource :'test.png'  ,
+	imageSource :''  ,
 	};
 	
 	// On file select (from the pop up)
@@ -38,11 +37,16 @@ class uploadingImageComponent extends Component {
 	
 	// Request made to the backend api
 	// Send formData object
-     	axios.post(QUESTION_API_BASE_URL +'/image', formData).then((res) => {
+     	axios.post(QUESTION_API_BASE_URL +'/image', formData).then((res) => 
+		 {
+ 			
 			this.setState({ imageSource: res.data}  );
-			alert(res.data)
-	
-		});
+			//alert(res.status)
+			//alert(res.data)
+
+			console.log(res.data);
+		}
+		);
 
 	};
 	
@@ -95,7 +99,7 @@ class uploadingImageComponent extends Component {
 				Upload!
 				</button>
 			</div>
-			<img  src ={this.state.imageSource}    width= '100' height='100'   />
+			<img  src ={this.state.imageSource}    width= '300' height='300'   />
 		{this.fileData()}
 		</div>
 	);

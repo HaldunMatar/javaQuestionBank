@@ -1,6 +1,7 @@
 package net.javaguides.springboot.controller;
 
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
@@ -79,25 +80,45 @@ public class QuestionController {
 //public void  uploadImage() {
 public String  uploadFile(@RequestParam("myFile") MultipartFile myFile ) {
 			
+			
+			
+			
+			
  System.out.println(myFile);
 
 //file represent the uploaded file
  Path path = Paths.get("../react-frontend\\public\\images\\" + myFile.getOriginalFilename());
 
  try {
-	myFile.transferTo(path);
+	 
+	 
+	 
+
 	
-} catch (IllegalStateException e) {
-	// TODO Auto-generated catch block
-	e.printStackTrace();
-} catch (IOException e) {
-	// TODO Auto-generated catch block
-	e.printStackTrace();
+	
+	if (Files.notExists(path)) {
+		
+		myFile.transferTo(path);
+		  // file exist
+		}
+	
+	
+} 
+ catch (IllegalStateException e) {
+		// return path.toString().substring(path.toString().indexOf("images"));
+		///e.printStackTrace();
+	} // save
+ catch (IOException e) {
+	// return path.toString().substring(path.toString().indexOf("images"));
+	///e.printStackTrace();
 } // save file
+ 
+ 
  return path.toString().substring(path.toString().indexOf("images"));
  
  
 }
+		
 	
 	int o = 0 ;
 	@GetMapping("/questions/id/")

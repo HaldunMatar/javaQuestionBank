@@ -163,9 +163,6 @@ class CreateQuestionComponent extends Component {
                                             <label id='questionlabel'> نص السؤال: </label>
                                             <input placeholder=" Name" name="name" className="form-control" 
                                                 value={this.state.name} onChange={this.changeFirstNameHandler}/>
-
-
-                                                
                                         </div>
                                        
                                      
