@@ -7,45 +7,32 @@ class uploadingImageComponent extends Component {
 	state = {
 	// Initially, no file is selected
 	selectedFile: null ,
-
 	imageSource :''  ,
+
 	};
 	
 	// On file select (from the pop up)
 	onFileChange = event => {
 	
-	// Update the state
-	this.setState({ selectedFile: event.target.files[0] });
+	      // Update the state
+	     this.setState(
+	     	{ selectedFile: event.target.files[0] });
 	
 	};
 	
-	// On file upload (click the upload button)
 	onFileUpload = () => {
-	
-	// Create an object of formData
-	const formData = new FormData();
-	
-	// Update the formData object
-	formData.append(
-		"myFile",
-		this.state.selectedFile,
-		this.state.selectedFile.name
-	);
-	
-	// Details of the uploaded file
-	console.log(this.state.selectedFile);
-	
-	// Request made to the backend api
-	// Send formData object
-     	axios.post(QUESTION_API_BASE_URL +'/image', formData).then((res) => 
-		 {
- 			
+	        const formData = new FormData();
+			formData.append(
+			    "myFile",
+				this.state.selectedFile,
+				this.state.selectedFile.name
+					);
+		  console.log(this.state.selectedFile);
+          axios.post(QUESTION_API_BASE_URL +'/image', formData).then((res) => 
+		   {
 			this.setState({ imageSource: res.data}  );
-			//alert(res.status)
-			//alert(res.data)
-
-			console.log(res.data);
-		}
+		   //	console.log(res.data);
+		   }
 		);
 
 	};
@@ -53,9 +40,7 @@ class uploadingImageComponent extends Component {
 	// File content to be displayed after
 	// file upload is complete
 	fileData = () => {
-	
-	if (this.state.selectedFile) {
-		
+	if (this.state.selectedFile) {	
 		return (
 		<div>
 			<h2>File Details:</h2>

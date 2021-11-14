@@ -35,8 +35,6 @@ public class QuestionController {
 	
 	@Autowired
 	private QuestionRepository questionRepository;
-	
-	
 	// get employee by id rest api
 		@GetMapping("/questions/level/{level}/{subject}")
 		public List<Question>  getQuestionseByLevel(@PathVariable String level,@PathVariable String subject) {
@@ -71,7 +69,9 @@ public class QuestionController {
 	// create question rest api
 	@PostMapping("/questions")
 	public Question createQuestion(@RequestBody Question question) {
+		
 		return questionRepository.save(question);
+			
 	}
 	
 	
